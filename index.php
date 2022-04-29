@@ -7,6 +7,8 @@ class Movie
     private $year;
     private $director;
 
+    private $genre = '';
+
     public function __construct(string $_title, string $_country, int $_year, string $_director) {
         $this->title = $_title;
         $this->country = $_country;
@@ -46,17 +48,30 @@ class Movie
         return $this->director;
     }
 
+    public function setGenre($_genre) {
+        $this->genre = $_genre;
+    }
+
+    public function getGenre() {
+        return $this->genre;
+    }
+
 }
 
 $movieOne = new Movie('Il Cacciatore', 'US', 1978, 'Michael Cimino');
+$movieOne->setGenre('Drammatico');
 
 $movieTwo = new Movie('Pink Flamingos', 'US', 1972, 'John Waters');
+$movieTwo->setGenre('Weird');
 
-$movieThree = new Movie('Sei donne per l\'assassino', 'IT', 1964, 'Mario Bava');
+$movieThree = new Movie('Sei donne per l\' assassino', 'IT', 1964, 'Mario Bava');
+$movieThree->setGenre('Thriller', 'giallo');
 
 $movieFour = new Movie('Nikita', 'FR', 1990, 'Luc Besson');
+$movieFour->setGenre('Drammatico', 'azione', 'noir');
 
 $movieFive = new Movie('Nightmare - Dal profondo della notte', 'US', 1984, 'Wes Craven');
+$movieFive->setGenre('Horror');
 
 ?>
 
@@ -81,6 +96,7 @@ $movieFive = new Movie('Nightmare - Dal profondo della notte', 'US', 1984, 'Wes 
             echo '<li>' . '<h3>'. 'Paese: ' . $movie->getCountry() . '</h3>' . '</li>';
             echo '<li>' . '<h3>'. 'Anno: ' . $movie->getYear() . '</h3>' . '</li>';
             echo '<li>' . '<h3>'. 'Regia: ' . $movie->getDirector() . '</h3>' . '</li>';
+            echo '<li>' . '<h3>'. 'Genere: ' . $movie->getGenre() . '</h3>' . '</li>';
             echo '</ul>';
         }
     ?>
