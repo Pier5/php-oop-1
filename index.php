@@ -87,7 +87,7 @@ $movieFive->setGenre('Horror');
     <?php
 
         $arrMovies = [$movieOne, $movieTwo, $movieThree, $movieFour, $movieFive];
-        var_dump($arrMovies);
+        // var_dump($arrMovies);
 
         foreach($arrMovies as $movie) {
             echo '<h1 style="margin-left:40px; color:red">' . 'Scheda Film:' . '</h1>';
