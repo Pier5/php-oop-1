@@ -7,7 +7,7 @@ class Movie
     private $year;
     private $director;
 
-    private $genre = '';
+    private $genre;
 
     public function __construct(string $_title, string $_country, int $_year, string $_director) {
         $this->title = $_title;
@@ -65,10 +65,10 @@ $movieTwo = new Movie('Pink Flamingos', 'US', 1972, 'John Waters');
 $movieTwo->setGenre('Weird');
 
 $movieThree = new Movie('Sei donne per l\' assassino', 'IT', 1964, 'Mario Bava');
-$movieThree->setGenre('Thriller', 'giallo');
+$movieThree->setGenre('Thriller, giallo');
 
 $movieFour = new Movie('Nikita', 'FR', 1990, 'Luc Besson');
-$movieFour->setGenre('Drammatico', 'azione', 'noir');
+$movieFour->setGenre('Drammatico, azione, noir');
 
 $movieFive = new Movie('Nightmare - Dal profondo della notte', 'US', 1984, 'Wes Craven');
 $movieFive->setGenre('Horror');
@@ -87,7 +87,7 @@ $movieFive->setGenre('Horror');
     <?php
 
         $arrMovies = [$movieOne, $movieTwo, $movieThree, $movieFour, $movieFive];
-        // var_dump($arrMovies)
+        var_dump($arrMovies);
 
         foreach($arrMovies as $movie) {
             echo '<h1 style="margin-left:40px; color:red">' . 'Scheda Film:' . '</h1>';
