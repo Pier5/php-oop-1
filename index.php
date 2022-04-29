@@ -1,10 +1,3 @@
-<!-- create un file index.php in cui:
-- è definita una classe ‘Movie’
-   => all'interno della classe sono dichiarate delle variabili d'istanza
-   => all'interno della classe è definito un costruttore
-   => all'interno della classe è definito almeno un metodo
-- vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà -->
-
 <?php
 
 class Movie
@@ -13,8 +6,6 @@ class Movie
     private $country;
     private $year;
     private $director;
-
-    private $genre = '';
 
     public function __construct(string $_title, string $_country, int $_year, string $_director) {
         $this->title = $_title;
@@ -55,30 +46,44 @@ class Movie
         return $this->director;
     }
 
-    public function setGenre($_genre) {
-        $this->genre = $_genre;
-    }
-
-    public function getGenre() {
-        return $this->genre;
-    }
 }
 
 $movieOne = new Movie('Il Cacciatore', 'US', 1978, 'Michael Cimino');
-$movieOne->setGenre('drammatico');
-var_dump($movieOne);
 
 $movieTwo = new Movie('Pink Flamingos', 'US', 1972, 'John Waters');
-$movieTwo->setGenre('weird');
 
-$movieThree = new Movie('Sei donne per l\' assassino', 'IT', 1964, 'Mario Bava');
-$movieThree->setGenre('thriller', 'giallo');
+$movieThree = new Movie('Sei donne per l\'assassino', 'IT', 1964, 'Mario Bava');
 
 $movieFour = new Movie('Nikita', 'FR', 1990, 'Luc Besson');
-$movieFour->setGenre('drammatico', 'azione', 'noir');
 
 $movieFive = new Movie('Nightmare - Dal profondo della notte', 'US', 1984, 'Wes Craven');
-$movieFive->setGenre('horror');
 
-    
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>php-oop-1</title>
+</head>
+<body>
+    <?php
+
+        $arrMovies = [$movieOne, $movieTwo, $movieThree, $movieFour, $movieFive];
+        // var_dump($arrMovies)
+
+        foreach($arrMovies as $movie) {
+            echo '<h1 style="margin-left:40px; color:red">' . 'Scheda Film:' . '</h1>';
+            echo '<ul style="margin-bottom:100px; list-style-type:none">';
+            echo '<li>' . '<h3>' . 'Titolo: ' .  $movie->getTitle() . '</h3>' . '</li>';
+            echo '<li>' . '<h3>'. 'Paese: ' . $movie->getCountry() . '</h3>' . '</li>';
+            echo '<li>' . '<h3>'. 'Anno: ' . $movie->getYear() . '</h3>' . '</li>';
+            echo '<li>' . '<h3>'. 'Regia: ' . $movie->getDirector() . '</h3>' . '</li>';
+            echo '</ul>';
+        }
+    ?>
+
+</body>
+</html>
